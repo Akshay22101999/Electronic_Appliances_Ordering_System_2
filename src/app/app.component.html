@@ -1,0 +1,78 @@
+
+<div class="main-container">
+  <footer>
+    &copy; Akshay Jadhav. All Rights Reserved.
+  </footer>
+
+  <h2>Welcome to Electronics Appliances Ordering System</h2>
+
+  
+  <div *ngIf="isLogin == 0" class="login-form">
+    <p style="font-family: 'Times New Roman', Times, serif;">Login Page</p> <br> <br>
+    <label for="username">Username:</label>
+    <input type="text" id="username" placeholder="Enter username as 'admin'" [(ngModel)]="username" >
+    
+    <label for="password">Password:</label>
+    <input type="password" id="password" placeholder="Enter password as 'admin'" [(ngModel)]="password"><br> <br>
+   
+    
+    <select [(ngModel)]="selectedOption" >
+      <!-- <option disabled selected>-- Select role --</option> -->
+      <option *ngIf="!selectedOption" disabled selected>Select role</option>
+      <option >Admin</option>
+      <option >User</option>
+    </select><br><br>
+   
+    
+    <button (click)="login()">LOGIN</button>&nbsp;&nbsp; 
+    <button (click)="registerPage()">AdminRegister</button>&nbsp; <br> <br>
+    <button (click)="userRegisterPage()">UserRegister</button>
+
+    <p>Dummy adminusername: 'admin'<br>Dummy adminpassword: 'admin'</p>
+    <p>Dummy username: 'user'<br>Dummy password: 'user'</p>
+  </div>
+
+  <div *ngIf="isLogin == 1">
+    <app-dashboard></app-dashboard>
+  </div>
+</div>
+
+<div *ngIf="isLogin==2">
+  
+<div class="main-container" >
+  <p style="font-family: 'Times New Roman', Times, serif;">SignUp Page</p>
+
+
+<div class="login-form">
+  Name: <br>
+  <input type="text" [(ngModel)]="registerdata.rname" placeholder="enter name"><br>
+  Username: <br>
+  <input type="text" [(ngModel)]="registerdata.ruserername" placeholder="enter username"><br>
+  Password: <br>
+  <input type="password" [(ngModel)]="registerdata.rpassword" placeholder="enter password"><br>
+  Mobile: <br>
+  <input type="number" [(ngModel)]="registerdata.rmobile" placeholder="enter mobile number"> <br> <br>
+  <button (click)="registerAdmin()">SUBMIT</button>&nbsp;&nbsp;
+  <button (click)="backToLogin()">LOGIN</button>
+</div>
+</div>
+
+</div>
+<div *ngIf="isLogin==3">
+  Name: <br>
+  <input type="text" [(ngModel)]="userdata.uname" placeholder="enter name"><br>
+  Username: <br>
+  <input type="text" [(ngModel)]="userdata.uuserername" placeholder="enter username"><br>
+  Password: <br>
+  <input type="password" [(ngModel)]="userdata.upassword" placeholder="enter password"><br>
+  Mobile: <br>
+  <input type="number" [(ngModel)]="userdata.umobile" placeholder="enter mobile number"> <br> <br>
+  <button (click)="registerUser()">SUBMIT</button>&nbsp;&nbsp;
+  <button (click)="backToLogin()">LOGIN</button>  
+
+</div>
+
+
+<div *ngIf="isLogin==4">
+  <app-userdashboard></app-userdashboard>
+</div>

@@ -1,0 +1,31 @@
+<p>userdashboard works!</p>
+<h1>Available products</h1>
+
+<button (click)="showAvailableProduct()">Show Products</button>&nbsp;
+<button (click)="logout()">LOGOUT</button>
+
+<table border="1px solid grey"> 
+    <tr>
+        <td>sn</td>
+        <td>Owner Name</td>
+        <td>Available Product</td>
+        <td>Price</td>
+        <td>Address</td>
+        <td>Mobile Number</td>
+        <td>Action</td>
+    </tr>
+
+    <tr *ngFor="let own of owners;let i=index">
+        <td>{{i+1}}</td>
+        <td>{{own.ownerName}}</td>
+        <td>{{own.appliances}}</td>
+        <td>{{own.price}}</td>
+        <td>{{own.address}}</td>
+        <td>{{own.mobile}}</td>
+        <td>
+            <button>Purchase</button>&nbsp;
+            <button>Ignore</button>
+        </td>
+        
+    </tr>
+</table>

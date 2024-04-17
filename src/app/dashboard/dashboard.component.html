@@ -1,0 +1,59 @@
+<div>
+
+<div style="display: flex; justify-content: center;">
+ <div style="text-align: left;">
+   
+    Owner Name : 
+    <input type="text" placeholder="owner name" [(ngModel)]="owner.ownerName" required>
+    <div *ngIf="!owner.ownerName" class="error" style="color: red;">Owner Name is required.</div>
+    Product to Sell:
+    <input type="text" placeholder="enter product to sell" [(ngModel)]="owner.appliances">
+    Price : 
+    <input type="number" placeholder="enter price" [(ngModel)]="owner.price">
+    Address :
+    <input type="text" placeholder="enter city name" [(ngModel)]="owner.address">
+    City :
+    <input type="text" placeholder="enter city name" [(ngModel)]="owner.city">
+    Mobile Number :
+    <input type="number" placeholder="enter mobile number" [(ngModel)]="owner.mobile">
+    <button (click)="add()">ADD</button> <br> <br>
+    <button (click)="load()">LOAD LIST</button>&nbsp;
+    <button (click)="logout()">LOGOUT</button>
+    </div>
+</div>
+<div class="table-container">
+ 
+ 
+
+<table border="1px solid black">
+  <tr>
+   <td>SN</td>
+   
+    <td>Owner Name</td>
+    <td>Available Product to sell</td>
+    <td>Price</td>
+    <td>Address</td>
+    <td>City</td>
+    <td>Mobile Number</td>
+    <td>Action</td>
+  </tr>
+  <tr *ngFor="let owner of owners; let i = index ">
+    <!-- <td>{{i+1}}</td> -->
+    <td>{{owner.id}}</td>
+    <td>{{owner.ownerName}}</td>
+    <td>{{owner.appliances}}</td>
+    <td>{{owner.price}}</td>
+    <td>{{owner.address}}</td>
+    <td>{{owner.city}}</td>
+    <td>{{owner.mobile}}</td>
+    <td>
+      <button (click)="delete(owner)">Delete</button>
+    </td>
+  </tr>
+</table> 
+</div>
+</div>
+
+
+
+
